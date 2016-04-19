@@ -2,7 +2,7 @@ backButton = angular.module('ada-back-button',[])
 	.value('callbacks',[])
 	.value('defaultCallback',[])
 	.value('globalCallbacks',[])
-	.factory('BackButton',function(callbacks,defaultCallback,globalCallbacks,$location){
+	.factory('BackButton',['callbacks','defaultCallback','globalCallbacks','$location',function(callbacks,defaultCallback,globalCallbacks,$location){
 
 			return{
 
@@ -39,8 +39,8 @@ backButton = angular.module('ada-back-button',[])
 				}
 			};
 
-		})
-	.run(function(callbacks,defaultCallback,globalCallbacks,$location){
+		}])
+	.run(['callbacks','defaultCallback','globalCallbacks','$location',function(callbacks,defaultCallback,globalCallbacks,$location){
 		var onBackButton = function(){
 
 			for (var i in globalCallbacks){
@@ -56,6 +56,6 @@ backButton = angular.module('ada-back-button',[])
 		};
 
 		$(document).on("backbutton", onBackButton);
-	});
+	}]);
 
 	
