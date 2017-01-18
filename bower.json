@@ -1,6 +1,6 @@
 {
     "name": "ada-back-button",
-    "version": "1.0.0",
+    "version": "v1.0.000",
     "main": "ada-back-button.min.js",
     "ignore":[
       
